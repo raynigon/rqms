@@ -1,5 +1,6 @@
 plugins {
 	id 'java-library'
+	id 'de.clashsoft.angular-gradle' version '0.1.6' 
 }
 
 dependencies {
@@ -28,3 +29,17 @@ dependencyManagement {
 bootJar {
     enabled = false
 }
+
+angular {
+    appDir = "$projectDir/angular"
+	outputDir = "$projectDir/angular/dist" //
+	buildArgs = [ 'build' ]
+}
+
+/*task initConfig(type: Copy) {
+	group = BasePlugin.BUILD_GROUP
+	dependsOn += "buildAngular"
+    from("$projectDir/angular/dist/rqms/")
+    into "$buildDir/resources/main/static/"
+    includeEmptyDirs = false
+}*/
