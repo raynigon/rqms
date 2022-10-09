@@ -1,2 +1,2 @@
-# Relevance Quality Management Sytem
-The Relevance Quality Management Sytem
+# Relevance Quality Management System
+The Relevance Quality Management System
