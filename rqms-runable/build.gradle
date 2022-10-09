@@ -1,47 +1,22 @@
 plugins {
-	id 'org.springframework.boot' version '3.0.0-M5'
+	id 'org.springframework.boot'
 	id 'java'
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	/*
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.flywaydb:flyway-core'
-	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-	testImplementation 'org.testcontainers:junit-jupiter'
-	testImplementation 'org.testcontainers:postgresql'
-	*/
+
 	implementation project(':rqms-api-general')
 	implementation project(':rqms-api-offline')
 	implementation project(':rqms-api-online')
 	implementation project(':rqms-api-plugins')
-	implementation project(':rqms-app-general')
-	implementation project(':rqms-app-offline')
-	implementation project(':rqms-app-online')
-	implementation project(':rqms-app-plugins')
-	implementation project(':rqms-domain-offline')
-	implementation project(':rqms-domain-online')
-	implementation project(':rqms-domain-plugins')
-	implementation project(':rqms-infra')
+    /*implementation project(':rqms-app-general')
+    implementation project(':rqms-app-offline')
+    implementation project(':rqms-app-online')
+    implementation project(':rqms-app-plugins')
+    implementation project(':rqms-domain-offline')
+    implementation project(':rqms-domain-online')
+    implementation project(':rqms-domain-plugins')
+    implementation project(':rqms-infra')*/
 }
 
-dependencyManagement {
-	imports {
-		mavenBom "org.testcontainers:testcontainers-bom:1.17.4"
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2022.0.0-M5"
-	}
-}
