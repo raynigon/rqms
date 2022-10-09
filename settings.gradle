@@ -4,4 +4,18 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'app'
+rootProject.name = 'root'
+
+include 'rqms-api-general'
+include 'rqms-api-offline'
+include 'rqms-api-online'
+include 'rqms-api-plugins'
+include 'rqms-app-general'
+include 'rqms-app-offline'
+include 'rqms-app-online'
+include 'rqms-app-plugins'
+include 'rqms-domain-offline'
+include 'rqms-domain-online'
+include 'rqms-domain-plugins'
+include 'rqms-infra'
+include 'rqms-runable'
