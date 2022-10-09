@@ -24,13 +24,13 @@ jobs:
       - uses: jwgmeligmeyling/checkstyle-github-action@master
         with:
           path: '**/checkstyle/main.xml'
-      - name: Run Codacy Analysis CLI
-        uses: codacy/codacy-analysis-cli-action@master
-        with:
-          tool: spotbugs
-          project-token: ${{ secrets.CODACY_TOKEN }}
-          upload: true
-          max-allowed-issues: 2147483647
+      #- name: Run Codacy Analysis CLI
+      #  uses: codacy/codacy-analysis-cli-action@master
+      #  with:
+      #    tool: spotbugs
+      #    project-token: ${{ secrets.CODACY_TOKEN }}
+      #    upload: true
+      #    max-allowed-issues: 2147483647
 
   test:
     name: "Test"
@@ -44,11 +44,11 @@ jobs:
         uses: eskatos/gradle-command-action@v1.3.2
         with:
           arguments: test
-      - name: Codacy Publish
-        uses: codacy/codacy-coverage-reporter-action@master
-        if: github.actor != 'dependabot[bot]'
-        with:
-          project-token: ${{ secrets.CODACY_TOKEN }}
+      #- name: Codacy Publish
+      #  uses: codacy/codacy-coverage-reporter-action@master
+      #  if: github.actor != 'dependabot[bot]'
+      #  with:
+      #    project-token: ${{ secrets.CODACY_TOKEN }}
       - name: Add coverage to PR
         uses: madrapps/jacoco-report@v1.3
         if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
@@ -68,4 +68,4 @@ jobs:
       - name: Generate javadoc
         uses: eskatos/gradle-command-action@v1.3.2
         with:
-          arguments: globalJavadoc
+          arguments: javadoc
