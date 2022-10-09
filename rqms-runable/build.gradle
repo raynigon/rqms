@@ -1,15 +1,11 @@
 plugins {
 	id 'org.springframework.boot' version '3.0.0-M5'
-	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
 }
 
-repositories {
-	maven { url 'https://repo.spring.io/milestone' }
-	mavenCentral()
-}
-
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	/*
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -28,6 +24,19 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:postgresql'
+	*/
+	implementation project(':rqms-api-general')
+	implementation project(':rqms-api-offline')
+	implementation project(':rqms-api-online')
+	implementation project(':rqms-api-plugins')
+	implementation project(':rqms-app-general')
+	implementation project(':rqms-app-offline')
+	implementation project(':rqms-app-online')
+	implementation project(':rqms-app-plugins')
+	implementation project(':rqms-domain-offline')
+	implementation project(':rqms-domain-online')
+	implementation project(':rqms-domain-plugins')
+	implementation project(':rqms-infra')
 }
 
 dependencyManagement {
