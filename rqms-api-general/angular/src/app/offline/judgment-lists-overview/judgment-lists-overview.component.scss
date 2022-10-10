@@ -19,15 +19,16 @@
     }
     .title{
         min-width: 100px;
-        flex-grow: 1;
+        flex-grow: 0.8;
         padding: 0px 10px;
         line-height: 50px;
     }
     .tags{
         min-width: 50px;
         padding: 5px 0px;
+        flex-grow: 0.2;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         .tag + .tag {
             margin-left: 5px;
