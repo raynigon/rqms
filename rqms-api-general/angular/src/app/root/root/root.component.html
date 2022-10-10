@@ -1,0 +1,14 @@
+<mat-toolbar class="toolbar" color="primary">
+  <button mat-icon-button (click)="toggleSideNav()">
+    <mat-icon class="menu-icon" [attr.navState]="navState">menu</mat-icon>
+  </button>
+  <span>RQMS</span>
+</mat-toolbar>
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" mode="side" [opened]="navState">
+    <rqms-main-menu></rqms-main-menu>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

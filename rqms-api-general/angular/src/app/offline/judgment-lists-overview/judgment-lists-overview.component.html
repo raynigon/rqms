@@ -1,0 +1,23 @@
+<div class="judgment-lists-container">
+  <div *ngFor="let list of lists" class="entry">
+    <div
+      class="score"
+      [style.backgroundColor]="scoreToColor(list.testScore, 'background')"
+      [style.color]="scoreToColor(list.testScore, 'text')"
+    >
+      {{ list.testScore.toPrecision(2) }}
+    </div>
+    <div class="title">{{ list.title }}</div>
+    <div class="tags">
+      <rqms-tag
+        *ngFor="let tag of list.tags.slice(0, 3)"
+        [value]="tag"
+        class="tag"
+      ></rqms-tag>
+    </div>
+    <div class="results">{{ list.resultCount }}</div>
+    <div class="action" [routerLink]="'/offline/judgment-lists/'+list.id">
+      <mat-icon>navigate_next</mat-icon>
+    </div>
+  </div>
+</div>

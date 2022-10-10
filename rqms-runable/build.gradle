@@ -9,7 +9,7 @@ dependencies {
 	implementation project(':rqms-api-general')
 	implementation project(':rqms-api-offline')
 	implementation project(':rqms-api-online')
-	implementation project(':rqms-api-plugins')
+	implementation project(':rqms-api-integration')
     /*implementation project(':rqms-app-general')
     implementation project(':rqms-app-offline')
     implementation project(':rqms-app-online')

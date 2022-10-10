@@ -1,0 +1,45 @@
+import { Component, OnInit } from '@angular/core';
+import { JudgmentList } from '../model/jugment-list';
+
+@Component({
+  selector: 'rqms-judgment-lists-overview',
+  templateUrl: './judgment-lists-overview.component.html',
+  styleUrls: ['./judgment-lists-overview.component.scss']
+})
+export class JudgmentListsOverviewComponent implements OnInit {
+
+  public lists: JudgmentList[] = [
+    { id: "1234567890", title: "Wasser", tags: ["drink"], resultCount: 12, testScore: 1.0 },
+    { id: "1234567891", title: "Milch", tags: ["breakfast", "drink"], resultCount: 12, testScore: 0.9 },
+    { id: "1234567892", title: "Saft", tags: ["drink", "fruit"], resultCount: 12, testScore: 0.75 },
+    { id: "1234567892", title: "Kokosnuss", tags: ["fruit", "nut"], resultCount: 12, testScore: 0.99999999999 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.99999999999 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 1.0 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.9 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.8 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.7 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.6 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.5 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.4 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.3 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.2 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.1 },
+    { id: "1234567892", title: "Karotte", tags: ["vegetables", "tuber"], resultCount: 12, testScore: 0.0 },
+  ]
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  scoreToColor(score: number, type: "background" | "text"): string {
+
+    let red = (1 - Math.pow(score, 2));
+    let green = (1 - Math.pow(score - 1, 2));
+    let normalizer = 1/(red + green);
+    red = Math.min(red / normalizer, 1.0)  * 255;
+    green = Math.min(green / normalizer, 1.0) * 200;
+
+    return type == "background" ? `rgb(${red}, ${green}, 0)` : "rgb(255, 255, 255)"
+  }
+}

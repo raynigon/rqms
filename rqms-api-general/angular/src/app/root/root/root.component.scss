@@ -1,0 +1,31 @@
+.toolbar{
+    height: 50px;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    .menu-icon {
+        transition: 250ms ease-in-out;
+    }
+
+    .menu-icon[navState="true"] {
+        transform: rotate(-180deg);
+    }
+}
+
+.container {
+    height: calc(100vh - 50px);
+}
+
+.sidenav {
+    min-width: 200px;
+    max-width: 400px;
+    width: 20vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.content {
+    overflow-x: hidden;
+    overflow-y: auto;
+}

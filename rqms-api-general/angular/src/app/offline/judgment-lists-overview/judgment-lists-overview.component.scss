@@ -1,0 +1,54 @@
+.judgment-lists-container {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+}
+
+.entry{
+    display: flex;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #F0F0F0;
+
+    .score {
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .title{
+        min-width: 100px;
+        flex-grow: 1;
+        padding: 0px 10px;
+        line-height: 50px;
+    }
+    .tags{
+        min-width: 50px;
+        padding: 5px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .tag + .tag {
+            margin-left: 5px;
+        }
+    }
+    .results{
+        line-height: 50px;
+        padding: 0px 10px;
+    }
+    .action{
+        padding: 12px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #E0E0E0;
+        }
+    }
+
+    + .entry {
+        margin-top: 5px;
+    }
+}
