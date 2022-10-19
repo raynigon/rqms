@@ -5,7 +5,10 @@
     padding: 15px;
     display: flex;
 
+    justify-content: space-between;
+
     .actions {
+        align-self: flex-start;
         height: 52px;
 
         .button {
@@ -21,6 +24,10 @@
         .field {
             width: 100%;
         }
+    }
+
+    .spacer {
+        width: 300px;
     }
 }
 
