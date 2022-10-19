@@ -1,4 +1,4 @@
-package com.raynigon.rqms.api.general.configuration;
+package com.raynigon.rqms.api.general.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
