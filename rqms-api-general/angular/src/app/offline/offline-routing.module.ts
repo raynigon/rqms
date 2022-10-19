@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { JudgmentListEditorComponent } from './judgment-list-editor/judgment-list-editor.component';
-import { JudgmentListsOverviewComponent } from './judgment-lists-overview/judgment-lists-overview.component';
+import { RelevanceCaseEditorComponent } from './relevance-case-editor/relevance-case-editor.component';
+import { RelevanceCasesOverviewComponent } from './relevance-cases-overview/relevance-cases-overview.component';
 
 const routes: Routes = [
-  { path: 'judgment-lists', component: JudgmentListsOverviewComponent },
-  { path: 'judgment-lists/:id', component: JudgmentListEditorComponent }
+  { path: 'relevance-cases', component: RelevanceCasesOverviewComponent },
+  { path: 'relevance-cases/:id', component: RelevanceCaseEditorComponent }
 ];
 
 @NgModule({

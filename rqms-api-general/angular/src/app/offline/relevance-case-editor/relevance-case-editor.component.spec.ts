@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JudgmentListEditorComponent } from './judgment-list-editor.component';
+import { RelevanceCaseEditorComponent } from './relevance-case-editor.component';
 
 describe('JudgmentListEditorComponent', () => {
-  let component: JudgmentListEditorComponent;
-  let fixture: ComponentFixture<JudgmentListEditorComponent>;
+  let component: RelevanceCaseEditorComponent;
+  let fixture: ComponentFixture<RelevanceCaseEditorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JudgmentListEditorComponent ]
+      declarations: [ RelevanceCaseEditorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JudgmentListEditorComponent);
+    fixture = TestBed.createComponent(RelevanceCaseEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

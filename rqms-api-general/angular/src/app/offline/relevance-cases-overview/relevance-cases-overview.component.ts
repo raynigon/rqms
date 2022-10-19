@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { JudgmentList } from '../model/jugment-list';
+import { JudgmentList } from '../model/relevance-case';
 
 @Component({
-  selector: 'rqms-judgment-lists-overview',
-  templateUrl: './judgment-lists-overview.component.html',
-  styleUrls: ['./judgment-lists-overview.component.scss']
+  selector: 'rqms-relevance-cases-overview',
+  templateUrl: './relevance-cases-overview.component.html',
+  styleUrls: ['./relevance-cases-overview.component.scss']
 })
-export class JudgmentListsOverviewComponent implements OnInit {
+export class RelevanceCasesOverviewComponent implements OnInit {
 
   public lists: JudgmentList[] = [
     { id: "1234567890", title: "Wasser", tags: ["category:drink"], resultCount: 12, testScore: 1.0 },
