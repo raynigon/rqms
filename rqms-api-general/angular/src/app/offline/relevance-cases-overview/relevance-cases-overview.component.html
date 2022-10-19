@@ -15,24 +15,25 @@
   </div>
 </div>
 <div class="relevance-cases-container">
-  <div *ngFor="let list of cases" class="entry">
+  <div *ngFor="let case of cases" class="entry">
     <div
       class="score"
-      [style.backgroundColor]="scoreToColor(list.testScore, 'background')"
-      [style.color]="scoreToColor(list.testScore, 'text')"
+      [style.backgroundColor]="scoreToColor(case.relevanceScore, 'background')"
+      [style.color]="scoreToColor(case.relevanceScore, 'text')"
     >
-      {{ list.testScore.toPrecision(2) }}
+      {{ case.relevanceScore.toPrecision(2) }}
     </div>
-    <div class="title">{{ list.title }}</div>
+    <div class="title">{{ case.title }}</div>
     <div class="tags">
       <rqms-tag
-        *ngFor="let tag of list.tags.slice(0, 3)"
-        [value]="tag"
+        *ngFor="let container of getTags(case)"
+        [key]="container.key"
+        [value]="container.value"
         class="tag"
       ></rqms-tag>
     </div>
-    <div class="results">{{ list.resultCount }}</div>
-    <div class="action" [routerLink]="'/offline/relevance-cases/'+list.id">
+    <div class="results">{{ case.resultCount }}</div>
+    <div class="action" [routerLink]="'/offline/relevance-cases/'+case.id">
       <mat-icon>navigate_next</mat-icon>
     </div>
   </div>

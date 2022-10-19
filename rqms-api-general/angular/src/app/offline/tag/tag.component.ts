@@ -7,6 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TagComponent implements OnInit {
 
+  @Input("key")
+  public key: string = ""
+
   @Input("value")
   public value: string = ""
 
@@ -15,8 +18,8 @@ export class TagComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  hashColor(value: string, type: "background" | "border" | "text"): string {
-    const hash = this.djb2(value);
+  hashColor(type: "background" | "border" | "text"): string {
+    const hash = this.djb2(this.key);
     let r = (hash & 0xFF0000) >> 16;
     let g = (hash & 0x00FF00) >> 8;
     let b = hash & 0x0000FF;
