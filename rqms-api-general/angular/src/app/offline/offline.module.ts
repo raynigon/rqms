@@ -7,7 +7,9 @@ import { TagComponent } from './tag/tag.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RelevanceCaseEditorComponent } from './relevance-case-editor/relevance-case-editor.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatInputModule} from '@angular/material/input'; 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { RelevanceCaseEditorComponent } from './relevance-case-editor/relevance-
     TagComponent
   ],
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
     MatIconModule,
     MatButtonModule,
     CommonModule,

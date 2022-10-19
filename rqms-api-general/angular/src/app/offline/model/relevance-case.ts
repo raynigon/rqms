@@ -1,4 +1,4 @@
-export interface JudgmentList {
+export interface RelevanceCase {
     id: string
     title: string
     resultCount: number

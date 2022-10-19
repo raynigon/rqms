@@ -1,5 +1,21 @@
-<div class="judgment-lists-container">
-  <div *ngFor="let list of lists" class="entry">
+<div class="header">
+  <div class="actions">
+    <button mat-raised-button color="primary" class="button" routerLink="/offline/relevance-cases/new">
+      <mat-icon>add</mat-icon>
+      <span>
+        Create Relevance Case
+      </span>
+    </button>
+  </div>
+  <div class="filter">
+    <mat-form-field appearance="fill" class="field">
+      <mat-label >Filter</mat-label>
+      <input matInput (keyup)="filter($event.target)">
+    </mat-form-field>
+  </div>
+</div>
+<div class="relevance-cases-container">
+  <div *ngFor="let list of cases" class="entry">
     <div
       class="score"
       [style.backgroundColor]="scoreToColor(list.testScore, 'background')"
@@ -16,7 +32,7 @@
       ></rqms-tag>
     </div>
     <div class="results">{{ list.resultCount }}</div>
-    <div class="action" [routerLink]="'/offline/judgment-lists/'+list.id">
+    <div class="action" [routerLink]="'/offline/relevance-cases/'+list.id">
       <mat-icon>navigate_next</mat-icon>
     </div>
   </div>
