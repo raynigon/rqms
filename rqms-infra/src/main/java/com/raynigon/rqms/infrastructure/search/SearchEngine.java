@@ -2,6 +2,7 @@ package com.raynigon.rqms.infrastructure.search;
 
 import org.springframework.lang.NonNull;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import java.util.Map;
  * An implementation must therefore be provided by the respective plugin.
  * By assigning labels, an instance can be easily filtered out of the set of all existing instances.
  */
-public interface SearchEngine {
+public interface SearchEngine extends Serializable {
 
 
     /**

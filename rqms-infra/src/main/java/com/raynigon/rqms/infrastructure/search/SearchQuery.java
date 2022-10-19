@@ -1,6 +1,8 @@
 package com.raynigon.rqms.infrastructure.search;
 
-public interface SearchQuery {
+import java.io.Serializable;
+
+public interface SearchQuery extends Serializable {
 
     String getType();
 

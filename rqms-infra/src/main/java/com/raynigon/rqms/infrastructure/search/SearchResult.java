@@ -3,7 +3,9 @@ package com.raynigon.rqms.infrastructure.search;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-public interface SearchResult {
+import java.io.Serializable;
+
+public interface SearchResult extends Serializable {
 
     @NonNull
     String getDocumentId();
