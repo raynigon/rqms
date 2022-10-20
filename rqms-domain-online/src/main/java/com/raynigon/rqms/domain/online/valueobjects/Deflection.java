@@ -1,4 +1,18 @@
 package com.raynigon.rqms.domain.online.valueobjects;
 
-public class Deflection {
+import com.raynigon.rqms.domain.online.entities.SearchFact;
+
+import java.util.Set;
+
+public class Deflection implements OnlineMetric {
+    @Override
+    public String getName() {
+        return "default-deflection";
+    }
+
+    @Override
+    public double evaluateTotal(Set<SearchFact> searchFacts) {
+        return 0;
+    }
+
 }

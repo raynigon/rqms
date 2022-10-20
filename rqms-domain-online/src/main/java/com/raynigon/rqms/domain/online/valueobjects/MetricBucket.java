@@ -1,4 +1,10 @@
 package com.raynigon.rqms.domain.online.valueobjects;
 
-public class MetricBucket {
+import java.time.OffsetDateTime;
+
+public record MetricBucket(
+        OffsetDateTime start,
+        OffsetDateTime end,
+        double value
+) {
 }
