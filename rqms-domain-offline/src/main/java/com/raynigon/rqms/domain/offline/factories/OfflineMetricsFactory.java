@@ -28,6 +28,10 @@ public class OfflineMetricsFactory {
                 .collect(Collectors.toMap(MetricSupplier::getMetricName, Function.identity())));
     }
 
+    public Set<String> listMetrics() {
+        return suppliers.keySet();
+    }
+
     public OfflineMetric create(String name, int k, Set<ExpectedResult> expectedResults) {
         if (!suppliers.containsKey(name)) {
             throw new RuntimeException("Unknown Metric");
