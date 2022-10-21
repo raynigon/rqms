@@ -16,8 +16,9 @@ class HttpSecurityConfigurer {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests()
-                .mvcMatchers("/**").permitAll();
+        http.authorizeHttpRequests()
+                .requestMatchers("/**").permitAll();
+
         /*http.oauth2ResourceServer()
                 .jwt()
                 .decoder(jwtDecoder())
