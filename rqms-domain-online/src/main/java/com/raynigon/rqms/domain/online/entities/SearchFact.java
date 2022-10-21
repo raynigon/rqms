@@ -3,13 +3,9 @@ package com.raynigon.rqms.domain.online.entities;
 import com.raynigon.rqms.domain.online.valueobjects.SearchQuery;
 import com.raynigon.rqms.domain.online.valueobjects.SearchResultInteraction;
 import com.raynigon.rqms.infrastructure.search.SearchEngine;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Set;
 
-@Getter
-@RequiredArgsConstructor
 public record SearchFact(
         String searchId,
         String sessionId,

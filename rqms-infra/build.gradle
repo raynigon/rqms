@@ -7,8 +7,9 @@ plugins {
 
 dependencyManagement {
 	imports {
-		mavenBom SpringBootPlugin.BOM_COORDINATES
-	}
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+        mavenBom "org.testcontainers:testcontainers-bom:1.17.4"
+    }
 }
 
 dependencies {
@@ -29,5 +30,5 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
-    testImplementation 'org.testcontainers:postgresql'
+    //testImplementation 'org.testcontainers:postgresql'
 }
