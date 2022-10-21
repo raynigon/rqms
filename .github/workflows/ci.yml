@@ -48,6 +48,9 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 17
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Unit Tests
         uses: eskatos/gradle-command-action@v1.3.2
         with:
