@@ -51,6 +51,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: "Setup Angular CLI"
+        run: npm install -g @angular/cli
       - name: Unit Tests
         uses: eskatos/gradle-command-action@v1.3.2
         with:
