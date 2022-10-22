@@ -1,4 +1,9 @@
 <mat-nav-list>
+    <a mat-list-item routerLink="/offline/assertion-tests">
+        <mat-icon>fact_check</mat-icon>
+        &nbsp;
+        <span>Assertion Tests</span>
+    </a>
     <a mat-list-item routerLink="/offline/relevance-cases">
         <mat-icon>view_list</mat-icon>
         &nbsp;
@@ -9,10 +14,10 @@
         &nbsp;
         <span>Testläufe</span>
     </a>
-    <a mat-list-item routerLink="/offline/search-engines">
-        <mat-icon>manage_search</mat-icon>
+    <a mat-list-item routerLink="/offline/test-run-schedules">
+        <mat-icon>schedule</mat-icon>
         &nbsp;
-        <span>Suchfunktionen</span>
+        <span>Geplante Testläufe</span>
     </a>
     <a mat-list-item routerLink="/online/metrics">
         <mat-icon>auto_graph</mat-icon>
@@ -23,6 +28,11 @@
         <mat-icon>power</mat-icon>
         &nbsp;
         <span>Plugins</span>
+    </a>
+    <a mat-list-item routerLink="/integration/search-engines">
+        <mat-icon>manage_search</mat-icon>
+        &nbsp;
+        <span>Suchfunktionen</span>
     </a>
     <a mat-list-item routerLink="/imprint/">
         <mat-icon>info</mat-icon>
