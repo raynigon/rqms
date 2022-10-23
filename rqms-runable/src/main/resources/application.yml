@@ -1,1 +1,18 @@
-
+spring:
+  application:
+    name: "rqms-service"
+---
+# JPA, Database, Postgresql etc.
+spring:
+  jpa.properties.hibernate:
+    dialect: "org.hibernate.dialect.PostgreSQL95Dialect"
+  flyway:
+    enabled: true
+    defaultSchema: "service"
+    schemas: [ "service" ]
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rqms_service
+    username: rqms_service
+    password: rqms_service
+    driverClassName: org.postgresql.Driver
+---

@@ -13,6 +13,7 @@ dependencyManagement {
 
 dependencies {
 	implementation project(':rqms-app-offline')
+	implementation project(':rqms-domain-offline')
 	implementation project(':rqms-infra')
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'

@@ -14,11 +14,11 @@ public class PrecisionAtK implements OfflineMetric {
 
     private final int cutoff;
 
-    private final Set<ExpectedResult> expectedResults;
+    private final List<ExpectedResult> expectedResults;
 
     private final Set<String> expectedResultIds;
 
-    public PrecisionAtK(int k, Set<ExpectedResult> expectedResults) {
+    public PrecisionAtK(int k, List<ExpectedResult> expectedResults) {
         if (k <= 1) {
             throw new RuntimeException("cutoff has to be greater than 1");
         }
@@ -35,8 +35,8 @@ public class PrecisionAtK implements OfflineMetric {
     }
 
     @Override
-    public Set<ExpectedResult> getExpectedResults() {
-        return Collections.unmodifiableSet(expectedResults);
+    public List<ExpectedResult> getExpectedResults() {
+        return Collections.unmodifiableList(expectedResults);
     }
 
     @Override

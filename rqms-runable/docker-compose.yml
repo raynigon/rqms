@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres:11
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: rqms_service
+      POSTGRES_PASSWORD: rqms_service
+      POSTGRES_DB: rqms_service
+  elasticsearch:
+    image: "docker.elastic.co/elasticsearch/elasticsearch:8.2.2"
+    ports:
+      - 9200:9200
+    environment:
+      - "discovery.type=single-node"
+      - "xpack.security.enabled=false"

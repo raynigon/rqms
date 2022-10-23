@@ -8,10 +8,7 @@ import com.raynigon.rqms.infrastructure.search.SearchQuery;
 import com.raynigon.rqms.infrastructure.search.SearchResult;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Collections;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -75,8 +72,8 @@ public class RelevanceCaseAggregate {
         }
     }
 
-    public Set<ExpectedResult> listExpectedResults() {
-        return Collections.unmodifiableSet(root.getResults());
+    public List<ExpectedResult> listExpectedResults() {
+        return Collections.unmodifiableList(root.getResults());
     }
 
     public void setResultRelevance(String documentId, double relevance) {

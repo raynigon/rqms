@@ -5,18 +5,17 @@ import com.raynigon.rqms.infrastructure.search.SearchResult;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class ExpectedReciprocalRank implements OfflineMetric {
 
     public static final String NAME = "default-expected-reciprocal-rank";
 
 
-    private final Set<ExpectedResult> expectedResults;
+    private final List<ExpectedResult> expectedResults;
 
     private final double gradeMax;
 
-    public ExpectedReciprocalRank(Set<ExpectedResult> expectedResults) {
+    public ExpectedReciprocalRank(List<ExpectedResult> expectedResults) {
         this.expectedResults = expectedResults;
         this.gradeMax = expectedResults.stream()
                 .mapToDouble(ExpectedResult::relevance)
@@ -30,8 +29,8 @@ public class ExpectedReciprocalRank implements OfflineMetric {
     }
 
     @Override
-    public Set<ExpectedResult> getExpectedResults() {
-        return Collections.unmodifiableSet(expectedResults);
+    public List<ExpectedResult> getExpectedResults() {
+        return Collections.unmodifiableList(expectedResults);
     }
 
     @Override
