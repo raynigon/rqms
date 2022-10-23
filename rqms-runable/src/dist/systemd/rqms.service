@@ -1,0 +1,14 @@
+[Unit]
+Description=RQMS Daemon
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=raydio
+ExecStart=/usr/share/rqms/bin/run.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -26,6 +26,9 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'groovy'
     apply plugin: 'jacoco'
+    //apply plugin: 'checkstyle'
+    //apply plugin: 'pmd'
+    //apply plugin: 'com.github.spotbugs'
 
     sourceCompatibility = 17
     targetCompatibility = 17
