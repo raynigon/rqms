@@ -12,7 +12,7 @@ dependencies {
 	implementation project(':rqms-api-offline')
 	implementation project(':rqms-api-online')
 	implementation project(':rqms-api-integration')
-    /*implementation project(':rqms-app-general')
+	/*implementation project(':rqms-app-general')
     implementation project(':rqms-app-offline')
     implementation project(':rqms-app-online')
     implementation project(':rqms-app-plugins')
@@ -20,6 +20,22 @@ dependencies {
     implementation project(':rqms-domain-online')
     implementation project(':rqms-domain-plugins')
     implementation project(':rqms-infra')*/
+}
+
+jib {
+	from {
+		image = "openjdk:17-slim"
+	}
+	to {
+		image = "rqms"
+		tags = [System.getenv("GITHUB_SHA") == null ? "unknown" : System.getenv("GITHUB_SHA")]
+	}
+	container {
+		mainClass = "com.raynigon.rqms.runable.RqmsApplication"
+		ports = ["8080"]
+		appRoot = "/rqms/"
+		volumes = ["/data/"]
+	}
 }
 
 ospackage {
