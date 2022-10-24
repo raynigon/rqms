@@ -1,1 +1,64 @@
-<p>test-runs-overview works!</p>
+<div class="header">
+  <div class="actions">
+    <button (click)="create()" class="button" color="primary" mat-raised-button>
+      <mat-icon>add</mat-icon>
+      <span> Neuer Testlauf </span>
+    </button>
+  </div>
+</div>
+<div class="test-runs-container">
+  <div *ngFor="let run of testRuns" class="entry-container">
+    <div class="entry">
+      <div
+        [style.backgroundColor]="
+          scoreToColor(run.averageScore.value, 'background')
+        "
+        [style.color]="scoreToColor(run.averageScore.value, 'text')"
+        class="score"
+      >
+        {{ run.averageScore.value.toPrecision(2) }}
+      </div>
+      <div class="execution">{{ run.execution | timeAgo }}</div>
+      <div class="description">{{ run.description }}</div>
+      <div class="action">
+        <button mat-icon-button>
+          <mat-icon>difference</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          (click)="openedId == run.id ? (openedId = null) : (openedId = run.id)"
+          mat-icon-button
+        >
+          <mat-icon>{{
+            openedId == run.id ? "expand_less" : "expand_more"
+            }}</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="openedId == run.id" class="subentry-container">
+      <div *ngFor="let case of run.cases" class="subentry">
+        <div
+          [style.backgroundColor]="scoreToColor(case.score.value, 'background')"
+          [style.color]="scoreToColor(case.score.value, 'text')"
+          class="score"
+        >
+          {{ case.score.value.toPrecision(2) }}
+        </div>
+        <div class="title">{{ case.name }}</div>
+        <div class="labels">
+          <rqms-label-list [labels]="case.labels"></rqms-label-list>
+        </div>
+        <div class="action">
+          <a
+            [href]="'/offline/relevance-cases/' + case.labels['.id']"
+            target="_blank"
+          >
+            <mat-icon>open_in_new</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

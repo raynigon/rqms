@@ -46,7 +46,7 @@ public class OfflineMetricsFactory {
         String metricName = supplier.getMetricName();
         if (metricName.toLowerCase().startsWith("default-")) {
             // TODO replace with proper exception
-            throw new RuntimeException("Default Metrics cannot be overriden");
+            throw new RuntimeException("Default Metrics cannot be overridden");
         }
         suppliers.put(metricName, supplier);
     }

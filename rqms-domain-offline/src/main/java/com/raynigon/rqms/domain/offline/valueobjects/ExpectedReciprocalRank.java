@@ -29,6 +29,11 @@ public class ExpectedReciprocalRank implements OfflineMetric {
     }
 
     @Override
+    public int getCutoff() {
+        return -1;
+    }
+
+    @Override
     public List<ExpectedResult> getExpectedResults() {
         return Collections.unmodifiableList(expectedResults);
     }
@@ -36,7 +41,7 @@ public class ExpectedReciprocalRank implements OfflineMetric {
     @Override
     public RelevanceScore evaluate(List<SearchResult> results) {
         double p = 1.0;
-        double err = 1.0;
+        double err = 0.0;
         double r = 1;
         for (SearchResult result : results) {
             double R = grade(result);

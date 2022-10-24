@@ -49,13 +49,4 @@ public interface SearchEngine extends Serializable {
      */
     @NonNull
     List<SearchResult> search(SearchQuery query);
-
-    /**
-     * Create a new {@link SearchQuery} for a given Search Term and parameters
-     *
-     * @param searchTerm The search term for the new query
-     * @param parameters parameters for the new search query
-     * @return A new {@link SearchQuery} Object for the search term and parameters
-     */
-    SearchQuery createQuery(String searchTerm, Map<String, String> parameters);
 }

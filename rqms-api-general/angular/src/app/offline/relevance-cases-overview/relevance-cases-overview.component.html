@@ -26,12 +26,7 @@
     </div>
     <div class="title">{{ case.name }}</div>
     <div class="tags">
-      <rqms-tag
-        *ngFor="let container of getLabels(case)"
-        [key]="container.key"
-        [value]="container.value"
-        class="tag"
-      ></rqms-tag>
+      <rqms-label-list [labels]="case.labels"></rqms-label-list>
     </div>
     <div class="results">{{ case.resultCount }}</div>
     <div class="action" [routerLink]="'/offline/relevance-cases/'+case.id">

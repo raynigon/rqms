@@ -36,6 +36,11 @@ public class DiscountedCumulativeGain implements OfflineMetric {
     }
 
     @Override
+    public int getCutoff() {
+        return cutoff;
+    }
+
+    @Override
     public List<ExpectedResult> getExpectedResults() {
         return Collections.unmodifiableList(expectedResults);
     }

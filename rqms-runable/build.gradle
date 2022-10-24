@@ -7,6 +7,7 @@ plugins {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	implementation project(':rqms-api-general')
 	implementation project(':rqms-api-offline')
@@ -19,7 +20,8 @@ dependencies {
     implementation project(':rqms-domain-offline')
     implementation project(':rqms-domain-online')
     implementation project(':rqms-domain-plugins')
-    implementation project(':rqms-infra')*/
+    implementation project(':rqms-domain-plugins')*/
+	implementation project(':rqms-infra')
 }
 
 jib {

@@ -10,6 +10,8 @@ public interface OfflineMetric {
 
     String getName();
 
+    int getCutoff();
+
     List<ExpectedResult> getExpectedResults();
 
     RelevanceScore evaluate(List<SearchResult> results);

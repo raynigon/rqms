@@ -2,9 +2,15 @@ package com.raynigon.rqms.domain.offline.aggregations;
 
 import com.raynigon.rqms.domain.offline.entities.OfflineMetric;
 import com.raynigon.rqms.domain.offline.entities.RelevanceCase;
+import com.raynigon.rqms.domain.offline.factories.OfflineMetricsFactory;
+import com.raynigon.rqms.domain.offline.helpers.OfflineMetricData;
+import com.raynigon.rqms.domain.offline.helpers.SearchQueryData;
+import com.raynigon.rqms.domain.offline.helpers.SystemLabels;
+import com.raynigon.rqms.domain.offline.repositories.RelevanceCaseRepository;
 import com.raynigon.rqms.domain.offline.valueobjects.ExpectedResult;
 import com.raynigon.rqms.domain.offline.valueobjects.Label;
 import com.raynigon.rqms.infrastructure.search.SearchQuery;
+import com.raynigon.rqms.infrastructure.search.SearchQueryFactory;
 import com.raynigon.rqms.infrastructure.search.SearchResult;
 import lombok.RequiredArgsConstructor;
 
@@ -17,12 +23,23 @@ public class RelevanceCaseAggregate {
 
     private final RelevanceCase root;
 
+    private final RelevanceCaseRepository repository;
+
+    private final OfflineMetricsFactory metricsFactory;
+
+    private final SearchQueryFactory queryFactory;
+
     public UUID getId() {
         return root.getId();
     }
 
     public String getName() {
         return root.getName();
+    }
+
+    public void setName(String name) {
+        root.setName(name);
+        updateSystemLabels();
     }
 
     public Set<Label> getLabels() {
@@ -33,20 +50,54 @@ public class RelevanceCaseAggregate {
                 .collect(Collectors.toUnmodifiableSet());
     }
 
+    public void setLabels(Map<String, String> labels) {
+        root.setLabels(new HashMap<>(labels));
+        updateSystemLabels();
+    }
+
     public void setLabel(Label label) {
         root.getLabels().put(label.key(), label.value());
+        updateSystemLabels();
     }
 
     public void removeLabel(String key) {
         root.getLabels().remove(key);
+        updateSystemLabels();
     }
 
     public OfflineMetric getMetric() {
-        return root.getMetric();
+        return metricsFactory.create(root.getMetric().getName(), root.getMetric().getCutoff(), root.getResults());
+    }
+
+    public void setMetric(String name, int cutoff) {
+        // Check this metric is correct
+        metricsFactory.create(name, cutoff, root.getResults());
+        // Update Values
+        root.setMetric(new OfflineMetricData(name, cutoff));
+        updateSystemLabels();
     }
 
     public SearchQuery getQuery() {
-        return root.getQuery();
+        return queryFactory.create(
+                root.getQuery().getType(),
+                root.getQuery().getSearchTerm(),
+                root.getQuery().getParameters()
+        );
+    }
+
+    public void setQuery(String type, String searchTerm, Map<String, String> parameters) {
+        // Check this query is correct
+        queryFactory.create(type, searchTerm, parameters);
+        // Update Values
+        root.setQuery(new SearchQueryData(type, searchTerm, parameters));
+        updateSystemLabels();
+    }
+
+    public void setExpectedResults(List<ExpectedResult> results) {
+        if (results.isEmpty()) {
+            throw new IllegalArgumentException("At least one result is needed");
+        }
+        root.setResults(new ArrayList<>(results));
     }
 
     public void addExpectedResult(SearchResult result) {
@@ -90,5 +141,18 @@ public class RelevanceCaseAggregate {
         ExpectedResult resultWithRelevance = expectedResult.get().withRelevance(relevance);
         root.getResults().removeIf(predicate);
         root.getResults().add(resultWithRelevance);
+    }
+
+    public void save() {
+        repository.save(root);
+    }
+
+    private void updateSystemLabels() {
+        root.getLabels().put(SystemLabels.RELEVANCE_CASE_TYPE, "relevance-case");
+        root.getLabels().put(SystemLabels.RELEVANCE_CASE_ID, root.getId().toString());
+        root.getLabels().put(SystemLabels.RELEVANCE_CASE_NAME, root.getName());
+        root.getLabels().put(SystemLabels.RELEVANCE_CASE_METRIC, root.getMetric().getName());
+        root.getLabels().put(SystemLabels.RELEVANCE_CASE_QUERY, root.getQuery().getType());
+        root.getLabels().put(SystemLabels.RELEVANCE_CASE_RESULT_COUNT, String.valueOf(root.getResults().size()));
     }
 }

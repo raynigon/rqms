@@ -1,0 +1,18 @@
+<mat-chip-list aria-label="Relevance Case Labels">
+  <mat-chip
+    (removed)="remove($event)"
+    *ngFor="let entry of labelList"
+    [removable]="removable"
+    [style.backgroundColor]="entry.backgroundColor"
+    [style.borderColor]="entry.borderColor"
+    [style.color]="entry.textColor"
+    [value]="entry"
+    disableRipple="true"
+    selectable="false"
+  >
+    <span>{{ entry.key }}:{{ entry.value }}</span>
+    <button *ngIf="removable" matChipRemove>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+</mat-chip-list>
