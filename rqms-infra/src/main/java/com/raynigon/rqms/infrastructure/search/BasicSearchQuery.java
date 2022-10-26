@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Collections;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class BasicSearchQuery implements SearchQuery {
@@ -27,13 +26,5 @@ public class BasicSearchQuery implements SearchQuery {
     @Override
     public Map<String, String> getParameters() {
         return Collections.unmodifiableMap(parameters);
-    }
-
-    @Override
-    public String build() {
-        return searchTerm + " " + parameters.entrySet()
-                .stream()
-                .map(it -> it.getKey() + "=" + it.getValue())
-                .collect(Collectors.joining("&"));
     }
 }

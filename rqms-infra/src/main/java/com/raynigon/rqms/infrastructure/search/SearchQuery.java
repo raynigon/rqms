@@ -10,6 +10,4 @@ public interface SearchQuery extends Serializable {
     String getSearchTerm();
 
     Map<String, String> getParameters();
-
-    String build();
 }

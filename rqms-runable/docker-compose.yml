@@ -15,3 +15,55 @@ services:
     environment:
       - "discovery.type=single-node"
       - "xpack.security.enabled=false"
+  oidc-server-mock:
+    container_name: oidc-server-mock
+    image: ghcr.io/soluto/oidc-server-mock:latest
+    ports:
+      - '4011:80'
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      SERVER_OPTIONS_INLINE: |
+        {
+          "AccessTokenJwtType": "JWT",
+          "Discovery": {
+            "ShowKeySet": true
+          },
+          "Authentication": {
+            "CookieSameSiteMode": "Lax",
+            "CheckSessionCookieSameSiteMode": "Lax"
+          }
+        }
+      LOGIN_OPTIONS_INLINE: |
+        {
+          "AllowRememberLogin": false
+        }
+      LOGOUT_OPTIONS_INLINE: |
+        {
+          "AutomaticRedirectAfterSignOut": true
+        }
+      API_SCOPES_INLINE: |
+        - Name: some-app-scope-1
+        - Name: some-app-scope-2
+      API_RESOURCES_INLINE: |
+        - Name: some-app
+          Scopes:
+            - some-app-scope-1
+            - some-app-scope-2
+      USERS_CONFIGURATION_INLINE: |
+        [
+          {
+            "SubjectId":"1",
+            "Username":"admin",
+            "Password":"admin",
+            "Claims": [
+              {
+                "Type": "email",
+                "Value": "admin@example.com",
+                "ValueType": "string"
+              }
+            ]
+          }
+        ]
+      CLIENTS_CONFIGURATION_PATH: /tmp/config/clients-config.json
+    volumes:
+      - ./src/test/resources/oidc-mock/:/tmp/config:ro

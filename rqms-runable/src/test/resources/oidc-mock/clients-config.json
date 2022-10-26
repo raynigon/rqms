@@ -1,0 +1,24 @@
+[
+  {
+    "ClientId": "main-client",
+    "ClientSecrets": [
+      "main-secret"
+    ],
+    "Description": "Main Client",
+    "AllowedGrantTypes": [
+      "client_credentials"
+    ],
+    "AllowAccessTokensViaBrowser": true,
+    "RedirectUris": [
+      "http://localhost:8080/auth/oidc",
+      "http://localhost:8080/auth/oidc"
+    ],
+    "AllowedScopes": [
+      "openid",
+      "profile",
+      "email"
+    ],
+    "IdentityTokenLifetime": 3600,
+    "AccessTokenLifetime": 3600
+  }
+]
