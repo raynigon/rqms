@@ -1,1 +1,16 @@
-<p>assertion-tests-overview works!</p>
+<div class="global-actions">
+  <button mat-raised-button [routerLink]="'/offline/assertion-tests/new'">
+    <mat-icon>add</mat-icon>Create new
+  </button>
+</div>
+<mat-selection-list [multiple]="false">
+  <mat-list-option
+    *ngFor="let test of assertionTests"
+    [value]="test"
+    [routerLink]="'/offline/assertion-tests/' + test.id"
+  >
+    <mat-icon mat-list-icon>fact_check</mat-icon>
+    <div mat-line>{{ test.query.searchTerm }}</div>
+    <div mat-line>Conditions: {{ test.conditions.length }}</div>
+  </mat-list-option>
+</mat-selection-list>

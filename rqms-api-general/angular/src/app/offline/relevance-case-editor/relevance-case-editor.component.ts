@@ -14,10 +14,6 @@ import {RelevanceCasesClientService} from '../relevance-cases-client/relevance-c
 export class RelevanceCaseEditorComponent implements OnInit {
 
   public createMode: boolean = false;
-  public parameterView: boolean = false;
-  public searchQueryTypes: string[] = ["default-basic-query"];
-  public metricTypes: string[] = ["default-precision-at-k", "default-expected-reciprocal-rank"];
-  public searchEngines: string[] = ["default"];
   public searchEngine: string = "default";
   public relevanceCase: RelevanceCaseDto = this.createNewRelevanceCase();
   public searchTerm: string = "";
@@ -82,15 +78,6 @@ export class RelevanceCaseEditorComponent implements OnInit {
     const results = await this.searchEngineClient.search(this.searchEngine, searchTerm);
     this.searchResults = results.filter(result => !this.relevanceCase.results.some(exp => exp.documentId === result.documentId))
     this.loading = false;
-  }
-
-  getQueryParameters(): { key: String, value: String }[] {
-    const result: { key: String, value: String }[] = [];
-    const params = this.relevanceCase.query.parameters;
-    for (let key in params) {
-      result.push({"key": key, value: params[key]})
-    }
-    return result;
   }
 
   addLabel(key: string, value: string) {

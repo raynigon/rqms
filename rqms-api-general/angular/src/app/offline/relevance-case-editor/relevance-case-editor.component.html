@@ -64,59 +64,7 @@
   <mat-card class="card case-query">
     <mat-card-title>Suchanfrage</mat-card-title>
     <mat-card-content>
-      <div class="query-part-one">
-        <rqms-search-query-select class="field query-type" (change)="relevanceCase.query.type = $event"></rqms-search-query-select>
-        <mat-form-field appearance="fill" class="field query-term">
-          <mat-label>Suchbegriff</mat-label>
-          <input
-            (change)="
-              relevanceCase.query.searchTerm = $any($event.target).value
-            "
-            [value]="relevanceCase.query.searchTerm"
-            matInput
-          />
-        </mat-form-field>
-        <div class="spacer"></div>
-      </div>
-      <div class="query-part-two">
-        <div (click)="parameterView = !parameterView" class="parameter-title">
-          <mat-icon>{{
-            parameterView ? "expand_less" : "expand_more"
-          }}</mat-icon>
-          <span>Parameter der Suchanfrage</span>
-        </div>
-        <div [attr.opened]="parameterView" class="hideable actions">
-          <button mat-button>
-            <mat-icon>add</mat-icon>
-            Hinzufügen
-          </button>
-        </div>
-        <div
-          [attr.opened]="parameterView"
-          class="hideable spacer-vertical-15"
-        ></div>
-        <div [attr.opened]="parameterView" class="hideable parameter-container">
-          <div
-            *ngFor="let parameters of getQueryParameters()"
-            class="parameter-entry"
-          >
-            <div class="parameter-key">
-              {{ parameters.key }}
-            </div>
-            <div class="parameter-value">
-              {{ parameters.value }}
-            </div>
-            <div class="parameter-actions">
-              <button mat-icon-button>
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button>
-                <mat-icon>delete</mat-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <rqms-search-query-editor [query]="relevanceCase.query" (queryChanged)="relevanceCase.query=$event"></rqms-search-query-editor>
     </mat-card-content>
   </mat-card>
   <!-- Metrics -->

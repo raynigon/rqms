@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AssertionTestsClientService } from '../assertion-tests-client/assertion-tests-client.service';
+import { AssertionTest } from '../model/assertion-test';
 
 @Component({
   selector: 'rqms-assertion-tests-overview',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssertionTestsOverviewComponent implements OnInit {
 
-  constructor() { }
+  public assertionTests: AssertionTest[] = [];
 
-  ngOnInit(): void {
+  constructor(private client: AssertionTestsClientService) { }
+
+  async ngOnInit(){
+    this.assertionTests = await this.client.list()
   }
 
 }

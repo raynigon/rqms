@@ -1,0 +1,62 @@
+.query-part-one {
+  display: flex;
+  justify-content: space-between;
+
+  .query-type {
+    flex: 0.2;
+    max-width: 250px;
+  }
+
+  .query-term {
+    flex: 0.5;
+  }
+
+  .spacer {
+    flex: 0.2;
+    max-width: 250px;
+  }
+}
+
+.query-part-two {
+  max-width: 100%;
+
+  .parameter-container {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .parameter-entry {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 15px;
+    }
+
+    .parameter-key {
+      min-width: 250px;
+    }
+
+    .parameter-value {
+      min-width: 250px;
+    }
+  }
+
+  .parameter-title {
+    cursor: pointer;
+    user-select: none;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  .spacer-vertical-15 {
+    height: 15px;
+  }
+
+  .hideable[opened="true"] {
+    display: block;
+  }
+
+  .hideable[opened="false"] {
+    display: none;
+  }
+}

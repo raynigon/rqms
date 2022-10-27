@@ -2,7 +2,9 @@ package com.raynigon.rqms.infrastructure.scripting;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GroovyScriptEvaluator implements ScriptEvaluator {
 
     @Override
@@ -15,6 +17,6 @@ public class GroovyScriptEvaluator implements ScriptEvaluator {
             // TODO replace with proper exception
             throw new RuntimeException("Result has unexpected Data Type");
         }
-        return ((Boolean) result).booleanValue();
+        return (Boolean) result;
     }
 }

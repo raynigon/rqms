@@ -22,32 +22,40 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LabelFilterEditorComponent } from './label-filter-editor/label-filter-editor.component';
 import { IntegrationModule } from '../integration/integration.module';
 import { OfflineMetricSelectComponent } from './offline-metric-select/offline-metric-select.component';
+import { AssertionTestsOverviewComponent } from './assertion-tests-overview/assertion-tests-overview.component';
+import { AssertionTestEditorComponent } from './assertion-test-editor/assertion-test-editor.component';
+import { SearchQueryEditorComponent } from './search-query-editor/search-query-editor.component';
+import {MatListModule} from '@angular/material/list'; 
 
 @NgModule({
   declarations: [
-    OfflineMetricSelectComponent,
-    RelevanceCasesOverviewComponent,
-    RelevanceCaseEditorComponent,
-    TestRunsOverviewComponent,
-    LabelListComponent,
+    AssertionTestEditorComponent,
+    AssertionTestsOverviewComponent,
     LabelFilterComponent,
     LabelFilterEditorComponent,
-    TimeAgoPipe
+    LabelListComponent,
+    OfflineMetricSelectComponent,
+    RelevanceCaseEditorComponent,
+    RelevanceCasesOverviewComponent,
+    SearchQueryEditorComponent,
+    TestRunsOverviewComponent,
+    TimeAgoPipe,
   ],
   imports: [
-    IntegrationModule,
-    MatDialogModule,
-    DragDropModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatSelectModule,
-    MatChipsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
     CommonModule,
+    DragDropModule,
     HttpClientModule,
+    IntegrationModule,
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatListModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
     OfflineRoutingModule,
   ],
   bootstrap: [LabelFilterEditorComponent],

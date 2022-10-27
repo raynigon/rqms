@@ -1,1 +1,48 @@
-<p>assertion-test-editor works!</p>
+<div class="global-actions">
+  <button
+    (click)="save()"
+    [disabled]="!isValid()"
+    color="primary"
+    mat-raised-button
+  >
+    <mat-icon>save</mat-icon>
+    {{ createMode ? "Erstellen & Speichern" : "Speichern" }}
+  </button>
+  <button
+    (click)="delete()"
+    [disabled]="createMode"
+    color="warn"
+    mat-raised-button
+  >
+    <mat-icon>delete</mat-icon>
+    Löschen
+  </button>
+</div>
+<div class="cards-container">
+  <mat-card class="card assertion-query">
+    <mat-card-title>Suchanfrage</mat-card-title>
+    <mat-card-content>
+      <rqms-search-query-editor
+        [query]="assertionTest.query"
+        (queryChanged)="assertionTest.query = $event"
+      ></rqms-search-query-editor>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card assertion-conditions">
+    <mat-card-title>Bedingungen</mat-card-title>
+    <mat-card-content>
+      <button mat-raised-button (click)="assertionTest.conditions.push({code: ''})" style="float: right;">
+        <mat-icon>add</mat-icon>Neu
+      </button>
+      <p>Die Bedingungen können in Groovy definiert werden. Es wird eine Variable "results" bereitgestellt, welche die Suchergebnisse mit den Attributen "documentId", "title" und "imageUrl" enthält.</p>
+      <div class="conditions-list" style="clear: right;">
+        <div class="condition-container" *ngFor="let condition of assertionTest.conditions">
+          <textarea (change)="condition.code=$any($event.target).value" class="editor" rows="5">{{ condition.code }}</textarea>
+          <button mat-icon-button (click)="removeCondition(condition)" class="action">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

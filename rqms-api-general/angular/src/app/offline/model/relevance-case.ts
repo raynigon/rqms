@@ -1,3 +1,5 @@
+import { SearchQuery } from "./search-query"
+
 export interface RelevanceCaseListItem {
   id: string
   name: string
@@ -15,13 +17,7 @@ export interface RelevanceCaseDto {
   labels: {
     [key: string]: string
   },
-  query: {
-    type: string,
-    searchTerm: string,
-    parameters: {
-      [key: string]: string
-    }
-  },
+  query: SearchQuery,
   metric: {
     name: string,
     cutoff: number,
