@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill" class="field">
+  <mat-label>Type der Metrik</mat-label>
+  <mat-select
+    (change)="update($event)"
+    [value]="metric"
+  >
+    <mat-option *ngFor="let type of metricTypes" [value]="type">
+      {{ type }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

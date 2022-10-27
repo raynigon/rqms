@@ -1,9 +1,19 @@
 <div class="global-actions">
-  <button (click)="save()" [disabled]="!isValid()" color="primary" mat-raised-button>
+  <button
+    (click)="save()"
+    [disabled]="!isValid()"
+    color="primary"
+    mat-raised-button
+  >
     <mat-icon>save</mat-icon>
     {{ createMode ? "Erstellen & Speichern" : "Speichern" }}
   </button>
-  <button (click)="delete()" [disabled]="createMode" color="warn" mat-raised-button>
+  <button
+    (click)="delete()"
+    [disabled]="createMode"
+    color="warn"
+    mat-raised-button
+  >
     <mat-icon>delete</mat-icon>
     Löschen
   </button>
@@ -23,11 +33,11 @@
       <div class="label-editor">
         <mat-form-field appearance="standard">
           <mat-label>Label Key</mat-label>
-          <input #labelKey matInput/>
+          <input #labelKey matInput />
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Label Value</mat-label>
-          <input #labelValue matInput/>
+          <input #labelValue matInput />
         </mat-form-field>
         <button
           (click)="
@@ -55,17 +65,7 @@
     <mat-card-title>Suchanfrage</mat-card-title>
     <mat-card-content>
       <div class="query-part-one">
-        <mat-form-field appearance="fill" class="field query-type">
-          <mat-label>Type der Suchanfrage</mat-label>
-          <mat-select
-            (change)="relevanceCase.query.type = $any($event.target).value"
-            [value]="relevanceCase.query.type"
-          >
-            <mat-option *ngFor="let type of searchQueryTypes" [value]="type">
-              {{ type }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <rqms-search-query-select class="field query-type" (change)="relevanceCase.query.type = $event"></rqms-search-query-select>
         <mat-form-field appearance="fill" class="field query-term">
           <mat-label>Suchbegriff</mat-label>
           <input
@@ -82,7 +82,7 @@
         <div (click)="parameterView = !parameterView" class="parameter-title">
           <mat-icon>{{
             parameterView ? "expand_less" : "expand_more"
-            }}</mat-icon>
+          }}</mat-icon>
           <span>Parameter der Suchanfrage</span>
         </div>
         <div [attr.opened]="parameterView" class="hideable actions">
@@ -123,7 +123,8 @@
   <mat-card class="card case-metric">
     <mat-card-title>Metrik</mat-card-title>
     <mat-card-content>
-      <mat-form-field appearance="fill" class="field">
+      <rqms-offline-metric-select (change)="relevanceCase.metric.name = $event"></rqms-offline-metric-select>
+      <!--<mat-form-field appearance="fill" class="field">
         <mat-label>Type der Metrik</mat-label>
         <mat-select
           (selectionChange)="relevanceCase.metric.name = $event.value"
@@ -133,11 +134,15 @@
             {{ type }}
           </mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field>-->
       <mat-form-field appearance="fill" class="field">
         <mat-label>Metrik Cutoff</mat-label>
-        <input (change)="relevanceCase.metric.cutoff = $any($event.target).value" [value]="relevanceCase.metric.cutoff"
-               matInput type="number"/>
+        <input
+          (change)="relevanceCase.metric.cutoff = $any($event.target).value"
+          [value]="relevanceCase.metric.cutoff"
+          matInput
+          type="number"
+        />
       </mat-form-field>
     </mat-card-content>
   </mat-card>
@@ -153,17 +158,10 @@
       kannst du durch verschieben sortieren.
     </p>
     <div class="query-input">
-      <mat-form-field appearance="fill" class="field search-engine">
-        <mat-label>Search Engine</mat-label>
-        <mat-select
-          (change)="searchEngine = $any($event.target).value"
-          [value]="searchEngine"
-        >
-          <mat-option *ngFor="let name of searchEngines" [value]="name">
-            {{ name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <rqms-search-engine-select
+        class="field search-engine"
+        (change)="searchEngine = $event.name"
+      ></rqms-search-engine-select>
       <mat-form-field appearance="fill" class="field search-term">
         <mat-label>Suche</mat-label>
         <input
@@ -187,9 +185,7 @@
       *ngIf="relevanceCase.results.length == 0"
       class="placeholder result-entry"
     >
-      <mat-icon style="margin-left: 40%">arrow_drop_down_circle
-      </mat-icon
-      >
+      <mat-icon style="margin-left: 40%">arrow_drop_down_circle </mat-icon>
       <span>Dokumente hier ablegen</span>
     </div>
     <div
@@ -234,9 +230,7 @@
     class="available-results"
   >
     <div *ngIf="searchResults.length == 0" class="placeholder result-entry">
-      <mat-icon style="margin-left: 40%">error
-      </mat-icon
-      >
+      <mat-icon style="margin-left: 40%">error </mat-icon>
       <span>Keine Ergebnisse gefunden</span>
     </div>
     <div

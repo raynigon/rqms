@@ -17,16 +17,26 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {LabelListComponent} from './label-list/label-list.component';
 import {TestRunsOverviewComponent} from './test-runs-overview/test-runs-overview.component';
 import {TimeAgoPipe} from './pipes/time-ago-pipe';
+import { LabelFilterComponent } from './label-filter/label-filter.component';
+import {MatDialogModule} from '@angular/material/dialog'; 
+import { LabelFilterEditorComponent } from './label-filter-editor/label-filter-editor.component';
+import { IntegrationModule } from '../integration/integration.module';
+import { OfflineMetricSelectComponent } from './offline-metric-select/offline-metric-select.component';
 
 @NgModule({
   declarations: [
+    OfflineMetricSelectComponent,
     RelevanceCasesOverviewComponent,
     RelevanceCaseEditorComponent,
     TestRunsOverviewComponent,
     LabelListComponent,
+    LabelFilterComponent,
+    LabelFilterEditorComponent,
     TimeAgoPipe
   ],
   imports: [
+    IntegrationModule,
+    MatDialogModule,
     DragDropModule,
     MatCardModule,
     MatExpansionModule,
@@ -38,7 +48,8 @@ import {TimeAgoPipe} from './pipes/time-ago-pipe';
     MatButtonModule,
     CommonModule,
     HttpClientModule,
-    OfflineRoutingModule
-  ]
+    OfflineRoutingModule,
+  ],
+  bootstrap: [LabelFilterEditorComponent],
 })
 export class OfflineModule { }

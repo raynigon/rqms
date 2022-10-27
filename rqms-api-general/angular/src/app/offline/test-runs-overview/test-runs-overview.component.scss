@@ -8,17 +8,25 @@
   justify-content: space-between;
 
   .actions {
+    width: 100%;
     align-self: flex-start;
     height: 52px;
+    display: flex;
+    gap: 15px;
+
+    .label-filter{
+    }
 
     .button {
       height: 52px;
     }
+
+    .spacer {
+      flex-grow: 1;
+    }
   }
 
-  .spacer {
-    width: 300px;
-  }
+
 }
 
 .test-runs-container {

@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill" class="field search-query">
+  <mat-label>Search Query</mat-label>
+  <mat-select (change)="update($event)" [value]="searchQuery">
+    <mat-option *ngFor="let entry of searchQueries" [value]="entry">
+      {{ entry }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -17,7 +17,7 @@ public class MetricsController {
     private final OfflineMetricsFactory factory;
 
     @GetMapping
-    List<Object> listMetrics() {
+    List<String> listMetrics() {
         return new ArrayList<>(factory.listMetrics());
     }
 }

@@ -1,0 +1,28 @@
+.actions{
+    display: flex;
+    padding: 0px 0px 15px;
+    margin-bottom: 40px;
+    height: 60px;
+
+    .spacer {
+        flex-grow: 1;
+    }
+
+    .save {
+        height: 50px;
+    }
+}
+
+.field {
+    width: 200px;
+}
+
+.condition-list {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .condition-entry {
+        display: flex;
+        gap: 15px;
+    }
+}

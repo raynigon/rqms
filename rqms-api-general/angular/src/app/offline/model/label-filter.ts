@@ -1,10 +1,12 @@
 export interface LabelFilter {
   operator: "AND" | "OR"
-  conditions: {
-    comparison: "ALWAYS" | "NEVER" | "EQUALS" | "NOT_EQUALS" | "CONTAINS_KEY" | "CONTAINS_VALUE" | "HAS_KEY" | "HAS_VALUE"
-    key: string | null
-    value: string | null
-  }[]
+  conditions: LabelFilterCondition[]
+}
+
+export interface LabelFilterCondition{
+  comparison: "ALWAYS" | "NEVER" | "EQUALS" | "NOT_EQUALS" | "CONTAINS_KEY" | "CONTAINS_VALUE" | "HAS_KEY" | "HAS_VALUE"
+  key: string | null
+  value: string | null
 }
 
 /*

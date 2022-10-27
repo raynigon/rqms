@@ -1,5 +1,30 @@
 <div class="header">
   <div class="actions">
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Beschreibung</mat-label>
+      <input
+        matInput
+        (change)="description = $any($event.target).value"
+        [value]="description"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Search Engine</mat-label>
+      <mat-select
+        (selectionChange)="searchEngine = $any($event).value"
+        [value]="searchEngine"
+      >
+        <mat-option value="default">default</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <rqms-label-filter
+      class="label-filter"
+      [filter]="labelFilter"
+    ></rqms-label-filter>
+    <button mat-icon-button (click)="editLabelFilters()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <div class="spacer"></div>
     <button (click)="create()" class="button" color="primary" mat-raised-button>
       <mat-icon>add</mat-icon>
       <span> Neuer Testlauf </span>
@@ -33,7 +58,7 @@
         >
           <mat-icon>{{
             openedId == run.id ? "expand_less" : "expand_more"
-            }}</mat-icon>
+          }}</mat-icon>
         </button>
       </div>
     </div>

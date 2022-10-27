@@ -1,0 +1,28 @@
+<div class="container">
+  <span class="title">Label Filter:</span>
+  <div class="condition-list" [attr.operator]="filter.operator">
+    <div *ngIf="filter.conditions.length == 0">Keine Bedingungen</div>
+    <div class="condition-entry" *ngFor="let condition of filter.conditions">
+      <span *ngIf="condition.comparison == 'ALWAYS'">true</span>
+      <span *ngIf="condition.comparison == 'NEVER'">false</span>
+      <span *ngIf="condition.comparison == 'EQUALS'">
+        {{ condition.key }} == {{ condition.value }}
+      </span>
+      <span *ngIf="condition.comparison == 'NOT_EQUALS'">
+        {{ condition.key }} != {{ condition.value }}
+      </span>
+      <span *ngIf="condition.comparison == 'CONTAINS_KEY'">
+        {{ condition.key }} in [Key]
+      </span>
+      <span *ngIf="condition.comparison == 'CONTAINS_VALUE'">
+        {{ condition.value }} in [Value]</span
+      >
+      <span *ngIf="condition.comparison == 'HAS_KEY'">
+        [Key] == {{ condition.key }}</span
+      >
+      <span *ngIf="condition.comparison == 'HAS_VALUE'">
+        [Value] == {{ condition.value }}
+      </span>
+    </div>
+  </div>
+</div>

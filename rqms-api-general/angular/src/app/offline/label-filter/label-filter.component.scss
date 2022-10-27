@@ -1,0 +1,23 @@
+.container{
+  padding: 5px;
+}
+.title {
+  font-size: large;
+  font-weight: 200;
+}
+.condition-list {
+  display: flex;
+  .condition-entry + .condition-entry:before {
+    padding: 0px 5px;
+  }
+  &[operator="AND"] {
+    .condition-entry + .condition-entry:before {
+      content: "AND";
+    }
+  }
+  &[operator="OR"] {
+    .condition-entry + .condition-entry:before {
+      content: "OR";
+    }
+  }
+}

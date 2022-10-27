@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill" class="field search-engine">
+    <mat-label>Search Engine</mat-label>
+    <mat-select
+      (change)="update($event)"
+      [value]="searchEngine.name"
+    >
+      <mat-option *ngFor="let entry of searchEngines" [value]="entry.name">
+        {{ entry.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>

@@ -1,0 +1,85 @@
+<div>
+  <div class="actions">
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Type der Metrik</mat-label>
+      <mat-select
+        (selectionChange)="filter.operator = $any($event).value"
+        [value]="filter.operator"
+      >
+        <mat-option value="AND">und</mat-option>
+        <mat-option value="OR">oder</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button
+      mat-icon-button
+      class="new-condition"
+      (click)="
+        filter.conditions.push({ comparison: 'ALWAYS', key: '', value: '' })
+      "
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <div class="spacer"></div>
+    <button mat-raised-button class="save" color="primary" (click)="save()">
+      <mat-icon>save</mat-icon>Speichern
+    </button>
+  </div>
+  <div class="condition-list" [attr.operator]="filter.operator">
+    <div class="condition-entry" *ngFor="let condition of filter.conditions">
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Type der Metrik</mat-label>
+        <mat-select
+          (selectionChange)="condition.comparison = $any($event).value"
+          [value]="condition.comparison"
+        >
+          <mat-option value="ALWAYS">true</mat-option>
+          <mat-option value="NEVER">false</mat-option>
+          <mat-option value="EQUALS">==</mat-option>
+          <mat-option value="NOT_EQUALS">!=</mat-option>
+          <mat-option value="CONTAINS_KEY">in [Key]</mat-option>
+          <mat-option value="CONTAINS_VALUE">in [Value]</mat-option>
+          <mat-option value="HAS_KEY">[Key] ==</mat-option>
+          <mat-option value="HAS_VALUE">[Value] ==</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="fill"
+        class="field"
+        *ngIf="
+          ['EQUALS', 'NOT_EQUALS', 'CONTAINS_KEY', 'HAS_KEY'].includes(
+            condition.comparison
+          )
+        "
+      >
+        <mat-label>Key</mat-label>
+        <input
+          matInput
+          (change)="condition.key=$any($event.target).value"
+          [value]="condition.key"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="fill"
+        class="field"
+        *ngIf="
+          [
+            'EQUALS',
+            'NOT_EQUALS',
+            'NOT_EQUALS',
+            'CONTAINS_VALUE',
+            'HAS_VALUE'
+          ].includes(condition.comparison)
+        "
+      >
+        <mat-label>Value</mat-label>
+        <input
+          matInput
+          (change)="condition.value=$any($event.target).value"
+          [value]="condition.value"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
