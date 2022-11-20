@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { LabelFilterEditorComponent } from '../label-filter-editor/label-filter-editor.component';
 import {LabelFilter} from '../model/label-filter';
 import {RelevanceTestRunsClientService} from '../relevance-test-runs-client/relevance-test-runs-client.service';

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {MatChipEvent} from '@angular/material/chips';
+import {MatLegacyChipEvent as MatChipEvent} from '@angular/material/legacy-chips';
 
 interface Labels {
   [key: string]: string
