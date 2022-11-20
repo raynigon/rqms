@@ -19,7 +19,7 @@
   </button>
 </div>
 <div class="cards-container">
-  <mat-card class="card case-information">
+  <mat-card appearance="outlined" class="card case-information">
     <mat-card-title>Relevance Case Informationen</mat-card-title>
     <mat-card-content>
       <mat-form-field appearance="fill" class="field">
@@ -31,11 +31,11 @@
         />
       </mat-form-field>
       <div class="label-editor">
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Label Key</mat-label>
           <input #labelKey matInput />
         </mat-form-field>
-        <mat-form-field appearance="standard">
+        <mat-form-field>
           <mat-label>Label Value</mat-label>
           <input #labelValue matInput />
         </mat-form-field>
@@ -61,14 +61,14 @@
     </mat-card-content>
   </mat-card>
   <!-- Query -->
-  <mat-card class="card case-query">
+  <mat-card appearance="outlined" class="card case-query">
     <mat-card-title>Suchanfrage</mat-card-title>
     <mat-card-content>
       <rqms-search-query-editor [query]="relevanceCase.query" (queryChanged)="relevanceCase.query=$event"></rqms-search-query-editor>
     </mat-card-content>
   </mat-card>
   <!-- Metrics -->
-  <mat-card class="card case-metric">
+  <mat-card appearance="outlined" class="card case-metric">
     <mat-card-title>Metrik</mat-card-title>
     <mat-card-content>
       <rqms-offline-metric-select (change)="relevanceCase.metric.name = $event"></rqms-offline-metric-select>
@@ -97,7 +97,7 @@
 </div>
 <!-- Result Management -->
 <div class="results-container">
-  <mat-card class="query-box">
+  <mat-card appearance="outlined" class="query-box">
     <p style="width: 70%">
       Suche nach den Dokumenten welche du zu diesem Relevance Case hinzufügen
       möchtest (z. B. anhand der Dokumenten Id) und ziehe sie von recht nach

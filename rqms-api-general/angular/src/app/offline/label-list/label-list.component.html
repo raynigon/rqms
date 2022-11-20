@@ -1,5 +1,5 @@
-<mat-chip-list aria-label="Relevance Case Labels">
-  <mat-chip
+<mat-chip-listbox aria-label="Relevance Case Labels">
+  <mat-chip-option
     (removed)="remove($event)"
     *ngFor="let entry of labelList"
     [removable]="removable"
@@ -14,5 +14,5 @@
     <button *ngIf="removable" matChipRemove>
       <mat-icon>cancel</mat-icon>
     </button>
-  </mat-chip>
-</mat-chip-list>
+  </mat-chip-option>
+</mat-chip-listbox>
