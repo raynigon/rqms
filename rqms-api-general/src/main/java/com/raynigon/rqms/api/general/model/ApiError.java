@@ -5,6 +5,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+/**
+ * Generic DTO for API Errors
+ * */
 public record ApiError(
         HttpStatusCode status,
         String message,
