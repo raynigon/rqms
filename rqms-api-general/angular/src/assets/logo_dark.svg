@@ -1,0 +1,22 @@
+<svg data-v-fde0c5aa="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" class="font">
+    <!---->
+    <defs data-v-fde0c5aa="">
+        <linearGradient data-v-fde0c5aa="" gradientTransform="rotate(25)" id="text-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop data-v-fde0c5aa="" offset="0%" stop-color="#4E1A70" stop-opacity="1"></stop>
+            <stop data-v-fde0c5aa="" offset="100%" stop-color="#2B4CF2" stop-opacity="1"></stop>
+        </linearGradient>
+        <linearGradient data-v-fde0c5aa="" gradientTransform="rotate(45)" id="background-fill" x1="100%" y1="100%" x2="0%" y2="100%">
+            <stop data-v-fde0c5aa="" offset="0%" stop-color="#00000000" stop-opacity="1"></stop>
+            <stop data-v-fde0c5aa="" offset="10%" stop-color="#2020209F" stop-opacity="1"></stop>
+            <stop data-v-fde0c5aa="" offset="30%" stop-color="#505050FF" stop-opacity="1"></stop>
+            <stop data-v-fde0c5aa="" offset="50%" stop-color="#2020209F" stop-opacity="1"></stop>
+            <stop data-v-fde0c5aa="" offset="100%" stop-color="#00000000" stop-opacity="1"></stop>
+        </linearGradient>
+    </defs>
+    <rect data-v-fde0c5aa="" fill="#000000" x="0" y="0" width="300px" height="100px" class="logo-background-square"></rect>
+    <rect data-v-fde0c5aa="" fill="url(#background-fill)" x="0" y="0" width="300px" height="100px" class="logo-background-square">
+    </rect>
+    <g data-v-fde0c5aa="" id="0a01da6f-5d69-40f2-90a2-b75f0597ed8e" fill="url(#text-fill)" transform="matrix(5.530417442321777,0,0,5.530417442321777,31.814982046565007,0.0)">
+        <path d="M6.45 14L7.94 14.01L3.95 10.35C6.23 10.25 7.85 8.99 7.85 7.11C7.85 5.12 6.10 3.78 3.70 3.78L1.48 3.78L1.48 14L2.58 14L2.58 10.35ZM3.68 4.73C5.53 4.73 6.75 5.68 6.75 7.11C6.75 8.51 5.53 9.42 3.70 9.42L2.58 9.42L2.58 4.73ZM20.05 8.88C20.05 5.75 17.60 3.64 14.67 3.64C11.77 3.64 9.32 5.75 9.32 8.88C9.32 12.01 11.77 14.14 14.67 14.14C15.86 14.14 16.97 13.79 17.86 13.16L18.96 14.41L19.67 13.80L18.59 12.56C19.49 11.65 20.05 10.37 20.05 8.88ZM14.67 13.17C12.38 13.17 10.43 11.47 10.43 8.88C10.43 6.30 12.38 4.61 14.67 4.61C17.00 4.61 18.93 6.30 18.93 8.88C18.93 10.04 18.54 11.03 17.89 11.76L16.04 9.63L15.30 10.26L17.19 12.40C16.48 12.89 15.61 13.17 14.67 13.17ZM30.87 3.78L27.05 9.63L23.24 3.78L22.27 3.78L22.27 14L23.28 14L23.28 5.57L26.77 10.82L27.38 10.82L30.83 5.52L30.83 14L31.84 14L31.84 3.78ZM33.81 11.14C34.31 13.01 35.78 14.14 37.80 14.14C39.70 14.14 41.26 13.02 41.26 11.37C41.26 7.80 35.49 9.07 35.49 6.24C35.49 5.28 36.39 4.62 37.69 4.62C38.91 4.62 39.79 5.33 40.14 6.51L41.22 6.51C40.84 4.80 39.56 3.64 37.69 3.64C35.76 3.64 34.40 4.72 34.40 6.24C34.40 10.05 40.15 8.69 40.15 11.40C40.15 12.40 39.16 13.16 37.80 13.16C36.46 13.16 35.35 12.49 34.92 11.14Z"></path>
+    </g> <!----> <!---->
+</svg>

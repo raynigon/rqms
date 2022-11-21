@@ -1,5 +1,7 @@
 # Relevance Quality Management System (RQMS)
 
+![RQMS Logo](./rqms-api-general/angular/src/assets/logo_light.png)
+
 This Relevance Quality Management System is a prototype to show 
 how a Domain-driven Design based architecture can be implemented.
 The implementation is based upon a design used in my master thesis.
