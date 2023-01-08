@@ -20,7 +20,9 @@
 </div>
 <div class="cards-container">
   <mat-card appearance="outlined" class="card assertion-query">
-    <mat-card-title>Suchanfrage</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>Suchanfrage</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
       <rqms-search-query-editor
         [query]="assertionTest.query"
@@ -29,7 +31,9 @@
     </mat-card-content>
   </mat-card>
   <mat-card appearance="outlined" class="card assertion-conditions">
-    <mat-card-title>Bedingungen</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>Bedingungen</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
       <button mat-raised-button (click)="assertionTest.conditions.push({code: ''})" style="float: right;">
         <mat-icon>add</mat-icon>Neu
