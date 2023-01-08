@@ -81,7 +81,7 @@ export class AssertionTestEditorComponent implements OnInit {
     this.loading = true;
     await this.client.deleteAssertionTest(this.assertionTest.id);
     this.loading = false;
-    this.router.navigateByUrl("/offline/relevance-cases")
+    this.router.navigateByUrl("/offline/assertion-tests")
   }
 
   public removeCondition(condition: any) {
