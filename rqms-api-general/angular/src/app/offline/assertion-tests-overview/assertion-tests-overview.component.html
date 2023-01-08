@@ -9,8 +9,8 @@
     [value]="test"
     [routerLink]="'/offline/assertion-tests/' + test.id"
   >
-    <mat-icon mat-list-icon>fact_check</mat-icon>
-    <div mat-line>{{ test.query.searchTerm }}</div>
-    <div mat-line>Conditions: {{ test.conditions.length }}</div>
+    <mat-icon matListItemIcon>fact_check</mat-icon>
+    <div matListItemTitle>{{ test.query.searchTerm }}</div>
+    <div matListItemLine>Conditions: {{ test.conditions.length }}</div>
   </mat-list-option>
 </mat-selection-list>

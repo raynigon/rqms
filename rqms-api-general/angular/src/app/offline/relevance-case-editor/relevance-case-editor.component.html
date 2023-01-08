@@ -20,7 +20,9 @@
 </div>
 <div class="cards-container">
   <mat-card appearance="outlined" class="card case-information">
-    <mat-card-title>Relevance Case Informationen</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>Relevance Case Informationen</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
       <mat-form-field appearance="fill" class="field">
         <mat-label>Name</mat-label>
@@ -62,14 +64,20 @@
   </mat-card>
   <!-- Query -->
   <mat-card appearance="outlined" class="card case-query">
-    <mat-card-title>Suchanfrage</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>Suchanfrage</mat-card-title>
+    </mat-card-header>
+
     <mat-card-content>
       <rqms-search-query-editor [query]="relevanceCase.query" (queryChanged)="relevanceCase.query=$event"></rqms-search-query-editor>
     </mat-card-content>
   </mat-card>
   <!-- Metrics -->
   <mat-card appearance="outlined" class="card case-metric">
-    <mat-card-title>Metrik</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>Metrik</mat-card-title>
+    </mat-card-header>
+
     <mat-card-content>
       <rqms-offline-metric-select (change)="relevanceCase.metric.name = $event"></rqms-offline-metric-select>
       <!--<mat-form-field appearance="fill" class="field">
@@ -98,28 +106,30 @@
 <!-- Result Management -->
 <div class="results-container">
   <mat-card appearance="outlined" class="query-box">
-    <p style="width: 70%">
-      Suche nach den Dokumenten welche du zu diesem Relevance Case hinzufügen
-      möchtest (z. B. anhand der Dokumenten Id) und ziehe sie von recht nach
-      links. Wenn du Dokumente aus diesem Relevance Case entfernen möchtest,
-      ziehe sie einfach von links nach rechts. Die Dokumente in der linken Liste
-      kannst du durch verschieben sortieren.
-    </p>
-    <div class="query-input">
-      <rqms-search-engine-select
-        class="field search-engine"
-        (change)="searchEngine = $event.name"
-      ></rqms-search-engine-select>
-      <mat-form-field appearance="fill" class="field search-term">
-        <mat-label>Suche</mat-label>
-        <input
-          (change)="search($any($event.target).value)"
-          (keyup)="search($any($event.target).value)"
-          [value]="relevanceCase.query.searchTerm"
-          matInput
-        />
-      </mat-form-field>
-    </div>
+    <mat-card-content>
+      <p style="width: 70%">
+        Suche nach den Dokumenten welche du zu diesem Relevance Case hinzufügen
+        möchtest (z. B. anhand der Dokumenten Id) und ziehe sie von recht nach
+        links. Wenn du Dokumente aus diesem Relevance Case entfernen möchtest,
+        ziehe sie einfach von links nach rechts. Die Dokumente in der linken Liste
+        kannst du durch verschieben sortieren.
+      </p>
+      <div class="query-input">
+        <rqms-search-engine-select
+          class="field search-engine"
+          (change)="searchEngine = $event.name"
+        ></rqms-search-engine-select>
+        <mat-form-field appearance="fill" class="field search-term">
+          <mat-label>Suche</mat-label>
+          <input
+            (change)="search($any($event.target).value)"
+            (keyup)="search($any($event.target).value)"
+            [value]="relevanceCase.query.searchTerm"
+            matInput
+          />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
   </mat-card>
   <div
     #expectedResutsList="cdkDropList"
