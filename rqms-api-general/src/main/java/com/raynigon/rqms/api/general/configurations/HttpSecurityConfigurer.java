@@ -27,22 +27,13 @@ class HttpSecurityConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeHttpRequests()
-                .requestMatchers("/**").permitAll();
+                .requestMatchers("/login*")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .oauth2Login();
 
-        /*http.oauth2ResourceServer()
-                .jwt()
-                .decoder(jwtDecoder())
-                .jwtAuthenticationConverter(authorityService)*/
         return http.build();
     }
-
-    /*@Bean
-    public JwtDecoder jwtDecoder() {
-        NimbusJwtDecoder decoder = ((NimbusJwtDecoder) JwtDecoders.fromOidcIssuerLocation(properties.issuerUri()));
-        AudienceValidator audienceValidator = AudienceValidator(properties.audience());
-        JwtValidator withIssuer = JwtValidators.createDefaultWithIssuer(properties.issuerUri());
-        TokenValidator withAudience = DelegatingOAuth2TokenValidator(withIssuer, audienceValidator, authorityService);
-        decoder.setJwtValidator(withAudience)
-        return decoder;
-    }*/
 }

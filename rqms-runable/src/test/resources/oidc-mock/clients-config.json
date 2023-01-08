@@ -6,18 +6,19 @@
     ],
     "Description": "Main Client",
     "AllowedGrantTypes": [
-      "client_credentials"
+      "authorization_code"
     ],
     "AllowAccessTokensViaBrowser": true,
     "RedirectUris": [
       "http://localhost:8080/auth/oidc",
-      "http://localhost:8080/auth/oidc"
+      "http://localhost:8080/login/oauth2/code/mock"
     ],
     "AllowedScopes": [
       "openid",
       "profile",
       "email"
     ],
+    "RequirePkce": false,
     "IdentityTokenLifetime": 3600,
     "AccessTokenLifetime": 3600
   }

@@ -16,3 +16,21 @@ spring:
     password: rqms_service
     driverClassName: org.postgresql.Driver
 ---
+rqms.security.oidc:
+  issuerUri: http://localhost:4011
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          mock:
+            client-name: "mock"
+            client-id: "main-client"
+            client-secret: "main-secret"
+            authorization-grant-type: "authorization_code"
+            redirect-uri: "http://localhost:8080/login/oauth2/code/mock"
+            scope: [ "openid", "profile", "email" ]
+        provider:
+          mock:
+            issuer-uri: "http://localhost:4011"
+
