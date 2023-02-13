@@ -4,60 +4,60 @@ updates:
   - package-ecosystem: "npm"
     directory:  "/rqms-api-general/angular/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-api-general"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-api-offline"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-api-online"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-api-plugins"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-app-general"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-app-offline"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-app-online"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-app-plugins"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-domain-offline"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-domain-online"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-domain-plugins"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-infra"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "gradle"
     directory: "/rqms-runable"
     schedule:
-      interval: "daily"
+      interval: "monthly"
