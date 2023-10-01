@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot'
 	id 'nebula.ospackage' version '9.1.1'
-	id 'com.google.cloud.tools.jib' version '3.3.2'
+	id 'com.google.cloud.tools.jib' version '3.4.0'
 }
 
 dependencies {
